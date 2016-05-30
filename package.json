@@ -1,0 +1,14 @@
+{
+  "name": "family-cookbook",
+  "version": "1.0.0",
+  "description": "\"App for sharing and saving recipes between family members\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
