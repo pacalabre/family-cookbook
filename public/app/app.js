@@ -6,27 +6,27 @@ angular.module('cookbookApp', ['ui.router'])
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'app/views/home.html'
+    templateUrl: 'app/views/home.ejs'
   })
   .state('signup', {
     url: '/signup',
-    templateUrl: 'app/views/signup.html'
+    templateUrl: 'app/views/signup.ejs'
   })
   .state('login', {
     url: '/login',
-    templateUrl: 'app/views/login.html'
+    templateUrl: 'app/views/login.ejs'
   })
   .state('cookbook', {
     url: '/cookbook',
-    templateUrl: 'app/views/cookbook.html'
+    templateUrl: 'app/views/cookbook.ejs'
   })
   .state('recipe-search', {
     url: '/recipe-search',
-    templateUrl: 'app/views/recipe-search.html'
+    templateUrl: 'app/views/recipe-search.ejs'
   })
   .state('404', {
     url: '/404',
-    templateUrl: 'app/views/404.html'
+    templateUrl: 'app/views/404.ejs'
   })
 
 
