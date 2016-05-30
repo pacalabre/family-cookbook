@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+body {
+  background-image: url('../images/cooking.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+p {
+  padding: 2% 40px 10px 40px;
+}
+
+.logo-main {
+  font-family: lobster;
+  color: red;
+  font-size: 80px;
+  text-align: center;
+}
+
+.main {
+  height: 100vh;
+  background-color: white;
+  margin: -20px 15%;
+  opacity: .8;
+}
