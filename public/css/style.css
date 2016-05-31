@@ -12,6 +12,7 @@ p {
 
 .nav {
   background-position: fixed;
+  float: right;
 }
 
 .logo-main {
