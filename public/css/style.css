@@ -28,10 +28,24 @@ p {
   height: 100%;
   background-color: white;
   margin: 5% 15%;
-  opacity: .8;
+  /*opacity: .8;*/
   overflow:contain;
 }
 
-.recipe-board {
-  margin: 10%;
+.home-main {
+  margin: 25px 5px 35px 5px;
+
 }
+
+.recipe-board {
+  margin: 2% 10%;
+}
+
+.signup {
+  margin: 5% 15%;
+}
+
+.new-recipe-button {
+  margin: 2% 10%;
+}
+
