@@ -1,8 +1,4 @@
-
-// angular.module('RecipeServices')
-// .factory('recipe', ['$resource', function() {
-//   // return $resource('/api/recipes/:id');
-//   console.log("beAnz")
-// }])
-
-
+angular.module('RecipeServices', ['ngResource'])
+.factory('Recipe', ['$resource', function($resource) {
+  return $resource('/api/recipes/:id');
+}]);

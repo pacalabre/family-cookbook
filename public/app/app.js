@@ -1,5 +1,5 @@
 
-angular.module('CookbookApp', ['ui.router'])
+angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/404');
@@ -44,35 +44,37 @@ angular.module('CookbookApp', ['ui.router'])
   $locationProvider.html5Mode(true);
 }])
 
-//Controllers
+// //Controllers
 
-.controller('HomeCtrl', ['$scope', function($scope) {
-  console.log("beAnzHome")
-}])
+// .controller('HomeCtrl', ['$scope', function($scope) {
+//   console.log("beAnzHome")
+// }])
 
-.controller('SignupCtrl', ['$scope', function($scope) {
-  console.log("beAnzSignUp")
-}])
+// .controller('SignupCtrl', ['$scope', function($scope) {
+//   console.log("beAnzSignUp")
+// }])
 
-.controller('LoginCtrl', ['$scope', function($scope) {
-  console.log("beAnzLogin")
-}])
+// .controller('LoginCtrl', ['$scope', function($scope) {
+//   console.log("beAnzLogin")
+// }])
 
-.controller('CookbookCtrl', ['$scope', function($scope) {
-  console.log("beAnzCookbook")
-}])
+// .controller('CookbookCtrl', ['$scope', function($scope) {
+//   console.log("beAnzCookbook")
+// }])
 
-.controller('ShowCtrl', ['$scope', function($scope) {
-  console.log("beAnzShow")
-}])
+// .controller('ShowCtrl', ['$scope', function($scope) {
+//   console.log("beAnzShow")
+// }])
 
-.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
-  console.log("beAnzSearch");
+// .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
+//   console.log("beAnzSearch");
 
-  $scope.searchTerm = '';
+
 
 
 // THIS API FUNCTIONALITY WILL BE MOVES FROM ANGULAR TO EXPRESS
+
+ //  $scope.searchTerm = '';
 //   $scope.search = function() {
 
 //   var req = {
@@ -92,7 +94,7 @@ angular.module('CookbookApp', ['ui.router'])
 //   });
 // }
 
-}])
+// }])
 
 
 
