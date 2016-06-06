@@ -6,13 +6,6 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   console.log("beAnzHome")
 }])
 
-.controller('SignupCtrl', ['$scope', function($scope) {
-  console.log("beAnzSignUp")
-}])
-
-.controller('LoginCtrl', ['$scope', function($scope) {
-  console.log("beAnzLogin")
-}])
 
 .controller('CookbookCtrl', ['$scope', function($scope) {
   console.log("beAnzCookbook")
@@ -25,4 +18,42 @@ angular.module('CookbookCtrls', ['RecipeServices'])
 .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   console.log("beAnzSearch");
 
+}])
+
+.controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+  $scope.user = {
+    email: '',
+    password: ''
+  };
+  $scope.userSignup = function() {
+    $http.post('/api/users', $scope.user).then(function success(res) {
+      $location.path('/');
+    }, function error(res) {
+      console.log(data);
+    });
+  }
+}])
+
+.controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {
+  $scope.user = {
+    email: '',
+    password: ''
+  };
+  $scope.userLogin = function() {
+    $http.post('/api/auth', $scope.user).then(function success(res) {
+      Auth.saveToken(res.data.token);
+      console.log('Token:', res.data.token)
+      $location.path('/');
+    }, function error(res) {
+      console.log(data);
+    });
+  }
+}])
+
+.controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  $scope.Auth = Auth;
+  $scope.logout = function() {
+    Auth.removeToken();
+    console.log('My token:', Auth.getToken());
+  }
 }])
