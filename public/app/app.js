@@ -1,4 +1,7 @@
-angular.module('cookbookApp', ['ui.router'])
+
+
+
+angular.module('CookbookApp', ['ui.router'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/404');
@@ -6,23 +9,28 @@ angular.module('cookbookApp', ['ui.router'])
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'app/views/home.ejs'
+    templateUrl: 'app/views/home.ejs',
+    controller: 'HomeCtrl'
   })
   .state('signup', {
     url: '/signup',
-    templateUrl: 'app/views/signup.ejs'
+    templateUrl: 'app/views/signup.ejs',
+    controller: 'SignupCtrl'
   })
   .state('login', {
     url: '/login',
-    templateUrl: 'app/views/login.ejs'
+    templateUrl: 'app/views/login.ejs',
+    controller: 'LoginCtrl'
   })
   .state('cookbook', {
     url: '/cookbook',
-    templateUrl: 'app/views/cookbook.ejs'
+    templateUrl: 'app/views/cookbook.ejs',
+    controller: 'CookbookCtrl'
   })
   .state('recipe-search', {
     url: '/recipe-search',
-    templateUrl: 'app/views/recipe-search.ejs'
+    templateUrl: 'app/views/recipe-search.ejs',
+    controller: 'SearchCtrl'
   })
   .state('404', {
     url: '/404',
@@ -31,5 +39,51 @@ angular.module('cookbookApp', ['ui.router'])
 
 
   $locationProvider.html5Mode(true);
-}]);
+}])
+
+//Controllers
+
+.controller('HomeCtrl', ['$scope', function($scope) {
+  console.log("beAnzHome")
+}])
+
+.controller('SignupCtrl', ['$scope', function($scope) {
+  console.log("beAnzSignUp")
+}])
+
+.controller('LoginCtrl', ['$scope', function($scope) {
+  console.log("beAnzLogin")
+}])
+
+.controller('CookbookCtrl', ['$scope', function($scope) {
+  console.log("beAnzCookbook")
+}])
+
+.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
+  console.log("beAnzSearch");
+
+  $scope.searchTerm = '';
+
+  $scope.search = function() {
+
+  var req = {
+    url: "http://food2fork.com/api/search?key="+foodKey,
+    method: 'GET',
+    params: {
+      s: $scope.searchTerm,
+    }
+  }
+
+  $http(req).then(function success(res) {
+    //do something with the response if successful
+    console.log(res);
+  }, function error(res) {
+    //do something if the response has an error
+    console.log(res);
+  });
+}
+
+}])
+
+
 

@@ -9,6 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "bcrypt": "^0.8.6",
+    "express": "^4.13.4",
+    "express-jwt": "^3.4.0",
+    "express-jwt-auth": "0.0.6",
+    "jsonwebtoken": "^7.0.0",
+    "mongodb": "^2.1.21",
+    "mongoose": "^4.4.20"
   }
 }

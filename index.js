@@ -1,32 +1,81 @@
-var express = require('express'),
-app = express();
+var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var request = require('request');
-// var mongoose = require('mongoose');
-// var session = require('express-session');
+var expressJWT = require('express-jwt');
+var jwt = require('jsonwebtoken');
+var app = express();
 
-// app.use(express.static(__dirname, + '/public'));
+var secret = "thisisthepassword";
+
+var mongoose = require('mongoose');
+// var User = require('./models/user');
+// mongoose.connect('mongodb://localhost/recipes');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')))
 
 // add app.use session here
 
 app.set('view engine', 'ejs');
 
-app.use( bodyParser.urlencoded({extended: false }) );
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send({message: 'You need an authorization token to view this information.'})
+  }
+});
 
-// add mongoose here
+app.use('/api/recipes', require('./controllers/recipes'));
+app.use('/api/users', require('./controllers/users'));
+
+app.post('/api/auth', function(req, res) {
+  User.findOne({email: req.body.email}, function(err, user) {
+    if (err || !user) return res.status(401).send({message: 'User not found'});
+    user.authenticated(req.body.password, function(err, result) {
+      if (err || !result) return res.status(401).send({message: 'User not authenticated'});
+
+      var token = jwt.sign(user, secret);
+      res.send({user: user, token: token});
+    });
+  });
+});
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
+
+// app.get('/results', function (req, res) {
+//   var foodKey = process.env.Food2Fork_KEY;
+//   request("http://food2fork.com/api/search?key="+foodKey, function(err,response,body) {
+//     var data=JSON.parse(body);
+//     // console.log(urlWorld+keyWorld+queryWorld+endWorld);
+//     console.log("data = "+data);
+//     console.log("Error = "+err);
+//     // if(!err && response.statusCode === 200 && data){
+//     //   res.render('weather',{conditions:data,q:query})
+//     // } else {
+//     //   console.log(err);
+//     //   res.render("error");
+//     // }
+
+//     res.render("results.html");
+//   })
+
+// });
+
+
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.listen(3000);
+app.listen( process.env.PORT || 3000);
 
 
 // things to add:
-// - OAuth
-// - Login
+// - OAuth / Login: Angular vs Node?
 // - All Things Mongo / Database
 //   - Add / Edit Food
 // - Cloudinary Images

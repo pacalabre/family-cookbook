@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 
 body {
   background-image: url('../images/cooking.jpg');
@@ -7,17 +8,25 @@ body {
 }
 
 p {
-  padding: 2% 40px 10px 40px;
+  padding: 2% 40px 5% 40px;
 }
 
 .nav {
   background-position: fixed;
   float: right;
+  font-family: oswald;
+  font-size: 20px;
+
+}
+
+.nav-link {
+  color: red;
 }
 
 .logo-main {
   font-size: 80px;
   text-align: center;
+  padding-top:30px;
 }
 
 .logo {
@@ -28,13 +37,13 @@ p {
 .main {
   height: 100%;
   background-color: white;
-  margin: 5% 15%;
+  margin: 5% 25%;
   /*opacity: .8;*/
   overflow:contain;
 }
 
 .home-main {
-  margin: 25px 5px 35px 5px;
+  margin: 25px 5px 100px 5px;
 
 }
 
