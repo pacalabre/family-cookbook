@@ -4,13 +4,17 @@ var path = require('path');
 var request = require('request');
 var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
+var mongoose = require('mongoose');
+var User = require('./models/user');
 var app = express();
 
 var secret = "thisisthepassword";
 
-var mongoose = require('mongoose');
-var User = require('./models/user');
-// mongoose.connect('mongodb://localhost/recipes');
+
+if(!mongoose.connection.db) mongoose.connect('mongodb://localhost/cookbook')
+  const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', console.log.bind(console, 'connected to mongodb'))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

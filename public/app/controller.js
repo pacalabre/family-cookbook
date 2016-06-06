@@ -27,6 +27,7 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   };
   $scope.userSignup = function() {
     $http.post('/api/users', $scope.user).then(function success(res) {
+      console.log("signed up");
       $location.path('/');
     }, function error(res) {
       console.log(data);
