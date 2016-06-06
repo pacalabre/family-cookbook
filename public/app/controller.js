@@ -27,13 +27,27 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   };
   $scope.userSignup = function() {
     $http.post('/api/users', $scope.user).then(function success(res) {
-      console.log("signed up");
       $location.path('/');
     }, function error(res) {
       console.log(data);
     });
   }
 }])
+
+// .controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+//   $scope.user = {
+//     email: '',
+//     password: ''
+//   };
+//   $scope.userSignup = function() {
+//     $http.post('/api/users', $scope.user).then(function success(res) {
+//       console.log($scope.user +" signed up");
+//       $location.path('/');
+//     }, function error(res) {
+//       console.log(data);
+//     });
+//   }
+// }])
 
 .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {
   $scope.user = {

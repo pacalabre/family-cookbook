@@ -29,15 +29,27 @@ app.use(function (err, req, res, next) {
   }
 });
 
+
+app.use('/api/users', expressJWT({secret: secret})
+.unless({path: ['/api/users'], method: 'post'}));
 app.use('/api/recipes', require('./controllers/recipes'));
 app.use('/api/users', require('./controllers/users'));
 
 app.post('/api/auth', function(req, res) {
-  User.findOne({email: req.body.email}, function(err, user) {
-    if (err || !user) return res.status(401).send({message: 'User not found'});
-    user.authenticated(req.body.password, function(err, result) {
-      if (err || !result) return res.status(401).send({message: 'User not authenticated'});
+  var search = {email: req.body.email};
+  console.log("searching for:", search);
 
+  User.findOne(search, function(err, user) {
+    if (err || !user) {
+      console.log('user not found');
+      return res.status(401).send({message: 'User not found'});
+    }
+
+    user.authenticated(req.body.password, function(err, result) {
+      if (err || !result) {
+        console.log('user not authenticated');
+        return res.status(401).send({message: 'User not authenticated'});
+      }
       var token = jwt.sign(user, secret);
       res.send({user: user, token: token});
     });

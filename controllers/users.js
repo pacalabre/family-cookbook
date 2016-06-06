@@ -10,6 +10,7 @@ router.route('/')
     });
   })
   .post(function(req, res) {
+    console.log("user login:", req.body);
     User.create(req.body, function(err, user) {
       if (err) return res.status(500).send(err);
       res.send(user);

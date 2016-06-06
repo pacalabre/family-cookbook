@@ -1,6 +1,10 @@
 
 angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
 
+.config(['$httpProvider', function($httpProvider) {
+  $httpProvider.interceptors.push('AuthInterceptor');
+}])
+
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/404');
 
