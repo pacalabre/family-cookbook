@@ -18,21 +18,24 @@
         <h4 class="modal-title" id="myModalLabel">Add New Recipe</h4>
       </div>
       <div class="modal-body">
-        <form class = "signup">
+        <form class="signup" ng-submit="createRecipe()">
           <div class="form-group">
-            <label for="exampleInputEmail1">Food Name</label>
-            <input type="foodName" class="form-control" id="exampleInputEmail1" placeholder="Pizza">
+            <label for="title">Food Name</label>
+            <input type="foodName" placeholder="Pizza" class="form-control" id="title" ng-model="recipe.title">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Short Description</label>
-            <input type="description" class="form-control" id="exampleInputPassword1" placeholder="New Pizza recipe that I've been playing with.">
+            <label for="description">Description</label>
+            <textarea placeholder="New Pizza recipe that I've been playing with." class="form-control" id="description" ng-model="recipe.description"></textarea>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Recipe</label>
-            <textarea type="description" class="form-control" id="exampleInputPassword1" placeholder="Preheat the oven to 400, Put the ingredients on the pizza, cook it."></textarea>
+            <label for="image">Recipe</label>
+            <textarea type="recipe" class="form-control" id="image" placeholder="Preheat the oven to 400, Put the ingredients on the pizza, cook it." ng-model="recipe.recipe"></textarea>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

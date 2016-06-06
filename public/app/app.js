@@ -1,11 +1,9 @@
 
-
-
 angular.module('CookbookApp', ['ui.router'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/404');
-  console.log("beAnz")
+
   $stateProvider
   .state('home', {
     url: '/',
@@ -26,6 +24,11 @@ angular.module('CookbookApp', ['ui.router'])
     url: '/cookbook',
     templateUrl: 'app/views/cookbook.html',
     controller: 'CookbookCtrl'
+  })
+  .state('recipeShow', {
+    url: '/cookbook/:id',
+    templateUrl: 'app/views/showRecipe.html',
+    controller: 'ShowCtrl'
   })
   .state('recipe-search', {
     url: '/recipe-search',
@@ -59,29 +62,35 @@ angular.module('CookbookApp', ['ui.router'])
   console.log("beAnzCookbook")
 }])
 
+.controller('ShowCtrl', ['$scope', function($scope) {
+  console.log("beAnzShow")
+}])
+
 .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   console.log("beAnzSearch");
 
   $scope.searchTerm = '';
 
-  $scope.search = function() {
 
-  var req = {
-    url: "http://food2fork.com/api/search?key="+foodKey,
-    method: 'GET',
-    params: {
-      s: $scope.searchTerm,
-    }
-  }
+// THIS API FUNCTIONALITY WILL BE MOVES FROM ANGULAR TO EXPRESS
+//   $scope.search = function() {
 
-  $http(req).then(function success(res) {
-    //do something with the response if successful
-    console.log(res);
-  }, function error(res) {
-    //do something if the response has an error
-    console.log(res);
-  });
-}
+//   var req = {
+//     url: "http://food2fork.com/api/search?key="+foodKey,
+//     method: 'GET',
+//     params: {
+//       s: $scope.searchTerm,
+//     }
+//   }
+
+//   $http(req).then(function success(res) {
+//     //do something with the response if successful
+//     console.log(res);
+//   }, function error(res) {
+//     //do something if the response has an error
+//     console.log(res);
+//   });
+// }
 
 }])
 

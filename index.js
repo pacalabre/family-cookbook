@@ -9,16 +9,15 @@ var app = express();
 var secret = "thisisthepassword";
 
 var mongoose = require('mongoose');
-// var User = require('./models/user');
+var User = require('./models/user');
 // mongoose.connect('mongodb://localhost/recipes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 // add app.use session here
 
-app.set('view engine', 'ejs');
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
