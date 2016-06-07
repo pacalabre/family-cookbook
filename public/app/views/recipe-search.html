@@ -7,7 +7,8 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <section ng-repeat="recipe in recipes track by $index">
- <a href="{{recipe.source_url}}">{{recipe.title}}
+ <h3 class="recipe-headline"><a href="{{recipe.source_url}}">{{recipe.title}}</h3>
+ <img class="recipe-search-img" src="{{recipe.image_url}}">
 </section>
 <h6>Powered By Food2Fork.com</h6>
 
