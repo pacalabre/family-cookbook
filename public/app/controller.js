@@ -7,8 +7,15 @@ angular.module('CookbookCtrls', ['RecipeServices'])
 }])
 
 
-.controller('CookbookCtrl', ['$scope', function($scope) {
-  console.log("beAnzCookbook")
+.controller('CookbookCtrl', ['$scope', '$http', function($scope, $http) {
+  $http.get('/api/recipes').then(function success(res) {
+    //do something with the response if successful
+    $scope.recipes = res.data;
+  }, function error(res) {
+    //do something if the response has an error
+    console.log(res);
+  });
+
 }])
 
 .controller('ShowCtrl', ['$scope', function($scope) {

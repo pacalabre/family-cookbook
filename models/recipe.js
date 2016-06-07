@@ -4,7 +4,8 @@ var RecipeSchema = new mongoose.Schema({
   title: String,
   description: String,
   recipe: String,
-  image: String
+  image: String,
+  author: String
 });
 
-module.exports = mongoose.model('Recipe', RecipeSchema);
+module.exports = mongoose.model('recipe', RecipeSchema);
