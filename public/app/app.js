@@ -6,7 +6,7 @@ angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
 }])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-  $urlRouterProvider.otherwise('/404');
+  // $urlRouterProvider.otherwise('/404');
 
   $stateProvider
   .state('home', {
@@ -38,6 +38,11 @@ angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
     url: '/recipe-search',
     templateUrl: 'app/views/recipe-search.html',
     controller: 'SearchCtrl'
+  })
+  .state('recipe-search/results', {
+    url: '/recipe-search/results?:q',
+    templateUrl: 'app/views/results.html',
+    controller: 'ResultsController'
   })
   .state('404', {
     url: '/404',

@@ -1,8 +1,8 @@
 <h1 class="logo-main logo">Recipe Search</h1>
-<form class = "signup" method="GET" action="/results">
+<form class = "signup" ng-submit="performRecipeSearch()" >
   <div class="form-group">
-    <label for="exampleInputEmail1"></label>
-    <input type="food" class="form-control" id="exampleInputEmail1" placeholder="ex. Veal Picatta" ng-model="searchTerm">
+    <!-- <label for="exampleInputEmail1"></label> -->
+    <input type="food" class="form-control" placeholder="ex. Veal Picatta" ng-model="q">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

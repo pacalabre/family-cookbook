@@ -56,33 +56,40 @@ app.post('/api/auth', function(req, res) {
   });
 });
 
-app.get('/*', function(req, res) {
+
+
+// http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
+
+app.get('/recipe-search', function(req, res) {
+  // res.send({results: [1,2,3]});
+});
+
+app.get('/recipe-search/results', function(req, res) {
+  //Food2Fork API
+  console.log("here")
+  var urlFoodSearch = 'http://food2fork.com/api/search?key=';
+  var query = '&q=' +  q;
+  console.log('query = '+ query);
+  var key = "APPID=" + process.env.Food2Fork_KEY;
+
+  request(urlFoodSearch+key+query, function(err,response,body) {
+    var data=JSON.parse(body);
+    if(!err && response.statusCode === 200 && data){
+      res.render('results',{conditions:data,q:query})
+    } else {
+      console.log(err);
+      res.render("error");
+    }
+  })
+})
+
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-
-// app.get('/results', function (req, res) {
-//   var foodKey = process.env.Food2Fork_KEY;
-//   request("http://food2fork.com/api/search?key="+foodKey, function(err,response,body) {
-//     var data=JSON.parse(body);
-//     // console.log(urlWorld+keyWorld+queryWorld+endWorld);
-//     console.log("data = "+data);
-//     console.log("Error = "+err);
-//     // if(!err && response.statusCode === 200 && data){
-//     //   res.render('weather',{conditions:data,q:query})
-//     // } else {
-//     //   console.log(err);
-//     //   res.render("error");
-//     // }
-
-//     res.render("results.html");
-//   })
-
-// });
-
-
-
-app.get('/', function(req, res) {
+// Redirect any URL that doesn't match previous routes
+// to be sent the index page.
+app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
@@ -93,6 +100,8 @@ app.listen( process.env.PORT || 3000);
 // - OAuth / Login: Angular vs Node? - done
 // - All Things Mongo / Database - database done
 //   - Add / Edit Food - in process of adding CRUD
+        // - hide add button if the user is not logged in
+        // - add individual recipe pages
 // - Cloudinary Images
 // - API
 

@@ -47,9 +47,34 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   console.log("beAnzShow")
 }])
 
-.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
   console.log("beAnzSearch");
+  $scope.performRecipeSearch = function() {
+    $state.go('recipe-search/results', {
+      q: $scope.q
+    });
+  };
+}])
 
+.controller('ResultsController', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
+  console.log("results:", $stateParams, $stateParams.q);
+
+
+
+  $scope.performRecipeSearch = function() {
+    $http({method:'GET', url: '/recipe-search', params:{
+      q: $stateParams.q
+    }}).then(function successCallback(response) {
+      console.log("Response="+response);
+
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log("error "+ response);
+    });
+  };
+
+  $scope.performRecipeSearch();
 }])
 
 .controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
