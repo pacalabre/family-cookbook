@@ -10,6 +10,7 @@ router.route('/')
     });
   })
   .post(function(req, res) {
+    console.log(req.body)
     Recipe.create(req.body, function(err, recipe) {
       if (err) return res.status(500).send(err);
       res.send(recipe);

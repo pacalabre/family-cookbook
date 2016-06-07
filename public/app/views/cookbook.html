@@ -3,61 +3,47 @@
   <title>Cookbook</title>
 </head>
 <body>
-<h1 class="logo-main logo">Cookbook</h1>
-<!-- Add Recipe -->
-<!-- Button trigger modal -->
-<button type="button" class="new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add New Recipe
-</button>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="add-recipe  modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add New Recipe</h4>
-      </div>
-      <div class="modal-body">
-        <form class="signup" ng-submit="createRecipe()">
-          <div class="form-group">
-            <label for="title">Food Name</label>
-            <input type="foodName" placeholder="Pizza" class="form-control" id="title" ng-model="recipe.title">
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea placeholder="New Pizza recipe that I've been playing with." class="form-control" id="description" ng-model="recipe.description"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="image">Recipe</label>
-            <textarea type="recipe" class="form-control" id="image" placeholder="Preheat the oven to 400, Put the ingredients on the pizza, cook it." ng-model="recipe.recipe"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
+  <h1 class="logo-main logo">Cookbook</h1>
+  <!-- Add Recipe -->
+  <!-- Button trigger modal -->
+  <button type="button" class="new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Add New Recipe
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="add-recipe  modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add New Recipe</h4>
+        </div>
+        <div class="modal-body">
+          <form class="signup" ng-submit="createRecipe()">
+            <div class="form-group">
+              <label for="title">Food Name</label>
+              <input type="foodName" placeholder="Pizza" class="form-control" id="title" ng-model="recipe.title">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea placeholder="New Pizza recipe that I've been playing with." class="form-control" id="description" ng-model="recipe.description"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="image">Recipe</label>
+              <textarea type="recipe" class="form-control" id="image" placeholder="Preheat the oven to 400, Put the ingredients on the pizza, cook it." ng-model="recipe.recipe"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- Add Recipe End -->
-<section class="recipe-board">
-  <!-- <section>
-    <h3>Mozz Sandwich</h3>
-    <h5>Traditional NY style Mozz sandwich</h5>
-    <h6>Paul</h6>
-  </section> -->
-  <section ng-repeat="recipe in recipes">
-    <h3>{{recipe.title}}</h3>
-    <h5>{{recipe.description}}</h5>
-    <h6>{{recipe.author}}</h6>
+  <!-- Add Recipe End -->
+  <section class="recipe-board">
+    <section ng-repeat="recipe in recipes">
+      <h3>{{recipe.title}}</h3>
+      <h5>{{recipe.description}}</h5>
+      <h6>{{recipe.author}}</h6>
+    </section>
   </section>
-
-
-</section>
 </body>
 </html>

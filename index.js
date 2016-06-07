@@ -90,9 +90,9 @@ app.listen( process.env.PORT || 3000);
 
 
 // things to add:
-// - OAuth / Login: Angular vs Node?
-// - All Things Mongo / Database
-//   - Add / Edit Food
+// - OAuth / Login: Angular vs Node? - done
+// - All Things Mongo / Database - database done
+//   - Add / Edit Food - in process of adding CRUD
 // - Cloudinary Images
 // - API
 
