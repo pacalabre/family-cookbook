@@ -60,25 +60,23 @@ app.post('/api/auth', function(req, res) {
 
 // http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
 
-app.get('/recipe-search', function(req, res) {
-  // res.send({results: [1,2,3]});
-});
+// app.get('/recipe-search', function(req, res) {
+//   // res.send({results: [1,2,3]});
+// });
 
-app.get('/recipe-search/results', function(req, res) {
+app.post('/recipe-search/results', function(req, res) {
   //Food2Fork API
-  console.log("here")
   var urlFoodSearch = 'http://food2fork.com/api/search?key=';
-  var query = '&q=' +  q;
-  console.log('query = '+ query);
-  var key = "APPID=" + process.env.Food2Fork_KEY;
+  var query = '&q=' +  req.body.query;
+  var key = process.env.Food2Fork_KEY;
 
   request(urlFoodSearch+key+query, function(err,response,body) {
     var data=JSON.parse(body);
     if(!err && response.statusCode === 200 && data){
-      res.render('results',{conditions:data,q:query})
+      res.send({conditions:data,q:query})
     } else {
       console.log(err);
-      res.render("error");
+      res.send("error");
     }
   })
 })

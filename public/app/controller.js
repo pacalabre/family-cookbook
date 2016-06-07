@@ -48,33 +48,60 @@ angular.module('CookbookCtrls', ['RecipeServices'])
 }])
 
 .controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
-  console.log("beAnzSearch");
+  // console.log("beAnzSearch");
+  // $scope.performRecipeSearch = function() {
+  //   $state.go('recipe-search/results', {
+  //     q: $scope.q
+  //   });
+  // };
   $scope.performRecipeSearch = function() {
-    $state.go('recipe-search/results', {
-      q: $scope.q
+    $http({
+      method:'POST',
+      url: '/recipe-search/results',
+      data: {
+        query: $scope.q
+      }
+    }).then(function successCallback(response) {
+      console.log("Response=", response.data.conditions.recipes);
+      $scope.recipes = response.data.conditions.recipes;
+
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log("error ", response);
     });
   };
 }])
 
 .controller('ResultsController', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
-  console.log("results:", $stateParams, $stateParams.q);
+  // console.log("results:", $stateParams, $stateParams.q);
+  // queryName = $stateParams.q;
+  // $http.post('/recipe-search/results', queryName)
+  // .success(function(data) {
+  //   console.log("data ="+ data);
+  // })
+  // .error(function() {
+  //   console.log("bad");
+  // })
 
+  // $scope.performRecipeSearch = function() {
+  //   $http({
+  //     method:'POST',
+  //     url: '/recipe-search/results',
+  //     data: {
+  //       query: $scope.q
+  //     }
+  //   }).then(function successCallback(response) {
+  //     console.log("Response="+response);
 
+  //   }, function errorCallback(response) {
+  //     // called asynchronously if an error occurs
+  //     // or server returns response with an error status.
+  //     console.log("error "+ response);
+  //   });
+  // };
 
-  $scope.performRecipeSearch = function() {
-    $http({method:'GET', url: '/recipe-search', params:{
-      q: $stateParams.q
-    }}).then(function successCallback(response) {
-      console.log("Response="+response);
-
-    }, function errorCallback(response) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-      console.log("error "+ response);
-    });
-  };
-
-  $scope.performRecipeSearch();
+  //$scope.performRecipeSearch();
 }])
 
 .controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
