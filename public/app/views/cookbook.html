@@ -3,10 +3,12 @@
   <title>Cookbook</title>
 </head>
 <body>
+
   <h1 class="logo-main logo">Cookbook</h1>
   <!-- Add Recipe -->
   <!-- Button trigger modal -->
-  <button type="button" class="new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+
+  <button type="button" class="new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-show="Auth.isLoggedIn()">
     Add New Recipe
   </button>
   <!-- Modal -->

@@ -98,8 +98,13 @@ app.listen( process.env.PORT || 3000);
 // - OAuth / Login: Angular vs Node? - done
 // - All Things Mongo / Database - database done
 //   - Add / Edit Food - in process of adding CRUD
-        // - hide add button if the user is not logged in
-        // - add individual recipe pages
+        // - Hide add button if the user is not logged in
+        // - Add Edit button if you are logged in and made the post
+        // - Add Edit post logic
+        // - Add posted by user
+        // - Deploy
+        // http://www.awwwards.com/tasty-design-restaurant-and-catering-websites.html
+// - add individual recipe pages -done
 // - Cloudinary Images
 // - API - Done
 

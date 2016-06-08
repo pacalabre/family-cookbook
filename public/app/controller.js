@@ -7,8 +7,9 @@ angular.module('CookbookCtrls', ['RecipeServices'])
 }])
 
 
-.controller('CookbookCtrl', ['$scope', '$http', 'Recipe',function($scope, $http, Recipe) {
+.controller('CookbookCtrl', ['$scope', '$http', 'Recipe', 'Auth',function($scope, $http, Recipe, Auth) {
   // id = $index;
+  $scope.Auth = Auth;
   $http.get('/api/recipes').then(function success(res) {
     //do something with the response if successful
     $scope.recipes = res.data;
