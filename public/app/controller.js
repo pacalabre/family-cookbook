@@ -8,6 +8,7 @@ angular.module('CookbookCtrls', ['RecipeServices'])
 
 
 .controller('CookbookCtrl', ['$scope', '$http', 'Recipe',function($scope, $http, Recipe) {
+  // id = $index;
   $http.get('/api/recipes').then(function success(res) {
     //do something with the response if successful
     $scope.recipes = res.data;
@@ -43,8 +44,18 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   });
 }])
 
-.controller('ShowCtrl', ['$scope', function($scope) {
-  console.log("beAnzShow")
+.controller('ShowCtrl', ['Recipe','$stateParams','$scope', function(Recipe,$stateParams, $scope) {
+  $scope.recipe = {};
+  Recipe.get({id: $stateParams.id}, function success(res){
+    $scope.recipe = res;
+    console.log($scope.recipe);
+    }, function error(err){
+      console.log(err);
+    })
+
+  // console.log('$stateParams ='+ $stateParams.id);
+  // console.log("beAnzShow");
+
 }])
 
 .controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {

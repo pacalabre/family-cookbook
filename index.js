@@ -101,7 +101,7 @@ app.listen( process.env.PORT || 3000);
         // - hide add button if the user is not logged in
         // - add individual recipe pages
 // - Cloudinary Images
-// - API
+// - API - Done
 
 // nice to have:
 // - comments

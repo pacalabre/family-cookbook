@@ -39,8 +39,8 @@
   </div>
   <!-- Add Recipe End -->
   <section class="recipe-board">
-    <section ng-repeat="recipe in recipes">
-      <h3>{{recipe.title}}</h3>
+    <section ng-repeat="recipe in recipes track by $index" >
+      <a ng-href="/cookbook/{{recipe._id}}"><h3>{{recipe.title}}</h3></a>
       <h5>{{recipe.description}}</h5>
       <h6>{{recipe.author}}</h6>
     </section>
