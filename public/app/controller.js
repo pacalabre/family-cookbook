@@ -45,7 +45,8 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   });
 }])
 
-.controller('ShowCtrl', ['Recipe','$stateParams','$scope', function(Recipe,$stateParams, $scope) {
+.controller('ShowCtrl', ['Recipe','$stateParams','$scope','Auth', function(Recipe,$stateParams, $scope, Auth) {
+  $scope.Auth = Auth;
   $scope.recipe = {};
   Recipe.get({id: $stateParams.id}, function success(res){
     $scope.recipe = res;
