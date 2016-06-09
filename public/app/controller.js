@@ -27,11 +27,13 @@ angular.module('CookbookCtrls', ['RecipeServices'])
     console.log("trying to make some pizza");
     Recipe.save($scope.recipe, function success(data) {
       console.log(data);
-      $location.path('/cookbook');
+      $("#myModal").modal('hide');
+      $location.path('/');
     }, function error(data) {
       console.log(data);
     });
   }
+
 }])
 
 .controller('newRecipeCtrl', ['$scope', function($scope) {
@@ -40,6 +42,7 @@ angular.module('CookbookCtrls', ['RecipeServices'])
     //do something with the response if successful
     // $location.path('/cookbook');
     console.log("data ="+res);
+    $location.path('/');
   }, function error(res) {
     //do something if the response has an error
     console.log(res);
@@ -176,11 +179,13 @@ angular.module('CookbookCtrls', ['RecipeServices'])
     image: ''
   };
 
-  $scope.createRecipe = function() {
+  $scope.createRecipe = function(e) {
+    e.preventDefault();
     console.log("trying to make some pizza");
     Recipe.save($scope.recipe, function success(data) {
       console.log(data);
-      $location.path('/cookbook');
+      console.log("relocating");
+      //$location.path('/cookbook');
     }, function error(data) {
       console.log(data);
     });

@@ -16,8 +16,8 @@ var secret = "thisisthepassword";
 // db.on('error', console.error.bind(console, 'connection error:'))
 // db.once('open', console.log.bind(console, 'connected to mongodb'))
 
-mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
-// mongoose.connect('mongodb://localhost/cookbook')
+// mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
+mongoose.connect('mongodb://localhost/cookbook')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
