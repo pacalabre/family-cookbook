@@ -7,7 +7,7 @@ angular.module('CookbookCtrls', ['RecipeServices'])
 }])
 
 
-.controller('CookbookCtrl', ['$scope', '$http', 'Recipe', 'Auth',function($scope, $http, Recipe, Auth) {
+.controller('CookbookCtrl', ['$scope', '$http', 'Recipe', '$location', 'Auth',function($scope, $http, Recipe, $location, Auth) {
   // id = $index;
   $scope.Auth = Auth;
   $http.get('/api/recipes').then(function success(res) {
@@ -38,14 +38,15 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   console.log("beAnzNewRecipe");
   $http.post('/api/recipes',$scope.title, $scope.description, $scope.recipe).then(function success(res) {
     //do something with the response if successful
-    $location.path('/cookbook');
+    // $location.path('/cookbook');
+    console.log("data ="+res);
   }, function error(res) {
     //do something if the response has an error
     console.log(res);
   });
 }])
 
-.controller('ShowCtrl', ['Recipe','$stateParams','$scope','Auth', function(Recipe,$stateParams, $scope, Auth) {
+.controller('ShowCtrl', ['Recipe','$stateParams','$scope','Auth','$http', function(Recipe, $stateParams, $scope, Auth, $http) {
   $scope.Auth = Auth;
   $scope.recipe = {};
   Recipe.get({id: $stateParams.id}, function success(res){
@@ -55,10 +56,22 @@ angular.module('CookbookCtrls', ['RecipeServices'])
       console.log(err);
     })
 
-  // console.log('$stateParams ='+ $stateParams.id);
-  // console.log("beAnzShow");
-
+  $scope.updateRecipe = function() {
+    console.log("trying to update some pizza");
+    console.log($scope.title);
+    $http({
+      url: '/api/recipes/$stateParams',
+      method: 'PUT',
+      data: {
+        title: $scope.title,
+        description: $scope.description,
+        recipe: $scope.recipe,
+        author: $scope.author
+      }
+    })
+  }
 }])
+
 
 .controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
   // console.log("beAnzSearch");
@@ -131,20 +144,6 @@ angular.module('CookbookCtrls', ['RecipeServices'])
   }
 }])
 
-// .controller('SignupCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
-//   $scope.user = {
-//     email: '',
-//     password: ''
-//   };
-//   $scope.userSignup = function() {
-//     $http.post('/api/users', $scope.user).then(function success(res) {
-//       console.log($scope.user +" signed up");
-//       $location.path('/');
-//     }, function error(res) {
-//       console.log(data);
-//     });
-//   }
-// }])
 
 .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', function($scope, $http, $location, Auth) {
   $scope.user = {

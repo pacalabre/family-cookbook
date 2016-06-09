@@ -11,10 +11,13 @@ var app = express();
 var secret = "thisisthepassword";
 
 
-if(!mongoose.connection.db) mongoose.connect('mongodb://localhost/cookbook')
-  const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', console.log.bind(console, 'connected to mongodb'))
+// if(!mongoose.connection.db) mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
+//   const db = mongoose.connection
+// db.on('error', console.error.bind(console, 'connection error:'))
+// db.once('open', console.log.bind(console, 'connected to mongodb'))
+
+// mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
+mongoose.connect('mongodb://localhost/cookbook')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -98,7 +101,7 @@ app.listen( process.env.PORT || 3000);
 // - OAuth / Login: Angular vs Node? - done
 // - All Things Mongo / Database - database done
 //   - Add / Edit Food - in process of adding CRUD
-        // - Hide add button if the user is not logged in
+// - Hide add button if the user is not logged in - Done
         // - Add Edit button if you are logged in and made the post
         // - Add Edit post logic
         // - Add posted by user

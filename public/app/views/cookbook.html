@@ -44,7 +44,7 @@
     <section ng-repeat="recipe in recipes track by $index" >
       <a ng-href="/cookbook/{{recipe._id}}"><h3>{{recipe.title}}</h3></a>
       <h5>{{recipe.description}}</h5>
-      <h6>{{recipe.author}}</h6>
+      <h6>{{user.id}}</h6>
     </section>
   </section>
 </body>

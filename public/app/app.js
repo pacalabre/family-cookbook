@@ -6,7 +6,7 @@ angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
 }])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-  // $urlRouterProvider.otherwise('/404');
+
 
   $stateProvider
   .state('home', {
@@ -53,57 +53,7 @@ angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
   $locationProvider.html5Mode(true);
 }])
 
-// //Controllers
 
-// .controller('HomeCtrl', ['$scope', function($scope) {
-//   console.log("beAnzHome")
-// }])
-
-// .controller('SignupCtrl', ['$scope', function($scope) {
-//   console.log("beAnzSignUp")
-// }])
-
-// .controller('LoginCtrl', ['$scope', function($scope) {
-//   console.log("beAnzLogin")
-// }])
-
-// .controller('CookbookCtrl', ['$scope', function($scope) {
-//   console.log("beAnzCookbook")
-// }])
-
-// .controller('ShowCtrl', ['$scope', function($scope) {
-//   console.log("beAnzShow")
-// }])
-
-// .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
-//   console.log("beAnzSearch");
-
-
-
-
-// THIS API FUNCTIONALITY WILL BE MOVES FROM ANGULAR TO EXPRESS
-
- //  $scope.searchTerm = '';
-//   $scope.search = function() {
-
-//   var req = {
-//     url: "http://food2fork.com/api/search?key="+foodKey,
-//     method: 'GET',
-//     params: {
-//       s: $scope.searchTerm,
-//     }
-//   }
-
-//   $http(req).then(function success(res) {
-//     //do something with the response if successful
-//     console.log(res);
-//   }, function error(res) {
-//     //do something if the response has an error
-//     console.log(res);
-//   });
-// }
-
-// }])
 
 
 

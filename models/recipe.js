@@ -5,7 +5,10 @@ var RecipeSchema = new mongoose.Schema({
   description: String,
   recipe: String,
   image: String,
-  author: String
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'User'
+  }
 });
 
 module.exports = mongoose.model('recipe', RecipeSchema);
