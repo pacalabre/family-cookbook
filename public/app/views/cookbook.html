@@ -3,11 +3,9 @@
   <title>Cookbook</title>
 </head>
 <body>
-
   <h1 class="logo-main logo">Cookbook</h1>
   <!-- Add Recipe -->
   <!-- Button trigger modal -->
-
   <button type="button" class="new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-show="Auth.isLoggedIn()">
     Add New Recipe
   </button>
@@ -44,7 +42,7 @@
     <section ng-repeat="recipe in recipes track by $index" >
       <a ng-href="/cookbook/{{recipe._id}}"><h3>{{recipe.title}}</h3></a>
       <h5>{{recipe.description}}</h5>
-      <h6>{{user.id}}</h6>
+      <h6>{{recipe.author.email}}</h6>
     </section>
   </section>
 </body>

@@ -7,7 +7,6 @@ angular.module('CookbookApp', ['ui.router', 'CookbookCtrls'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-
   $stateProvider
   .state('home', {
     url: '/',

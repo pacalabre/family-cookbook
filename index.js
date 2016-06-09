@@ -16,8 +16,8 @@ var secret = "thisisthepassword";
 // db.on('error', console.error.bind(console, 'connection error:'))
 // db.once('open', console.log.bind(console, 'connected to mongodb'))
 
-mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
-// mongoose.connect('mongodb://localhost/cookbook')
+// mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
+mongoose.connect('mongodb://localhost/cookbook')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -33,6 +33,8 @@ app.use(function (err, req, res, next) {
 });
 
 
+app.use('/api/recipes', expressJWT({secret: secret})
+  .unless({method:['GET']}))
 app.use('/api/users', expressJWT({secret: secret})
 .unless({path: ['/api/users'], method: 'post'}));
 app.use('/api/recipes', require('./controllers/recipes'));
@@ -59,13 +61,6 @@ app.post('/api/auth', function(req, res) {
   });
 });
 
-
-
-// http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
-
-// app.get('/recipe-search', function(req, res) {
-//   // res.send({results: [1,2,3]});
-// });
 
 app.post('/recipe-search/results', function(req, res) {
   //Food2Fork API
@@ -105,12 +100,13 @@ app.listen( process.env.PORT || 3000);
         // - Add Edit button if you are logged in and made the post
         // - Add Edit post logic
         // - Add posted by user
-        // - Deploy
+        // - Deploy - Done
         // http://www.awwwards.com/tasty-design-restaurant-and-catering-websites.html
 // - add individual recipe pages -done
-// - Cloudinary Images
 // - API - Done
 
-// nice to have:
+// Add on's:
+// - Edit button if you are logged in and you posted the recipe
+// - cloudinary images
 // - comments
 // - tags
