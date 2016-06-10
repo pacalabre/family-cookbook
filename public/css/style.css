@@ -26,6 +26,8 @@ a:hover {
   background-color: blue;
   border: none;
   font-family: oswald;
+  color: white;
+  font-size: 20px;
 }
 
 a:.button {
@@ -122,6 +124,12 @@ a:.button {
   font-family: oswald;
   font-size: 15px;
   color: white;
+}
+
+.form-label {
+  color: white;
+  font-family: oswald;
+  font-size: 20px;
 }
 
 .signup {
