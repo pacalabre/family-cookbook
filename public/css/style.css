@@ -8,8 +8,8 @@ body {
   background-attachment: fixed;
 }
 
-p {
-  padding: 2% 40px 5% 15%;
+.text {
+  padding: 0% 40px 3% 1%;
 }
 
 a {
@@ -19,10 +19,10 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: gray;
+  color: blue;
 }
 
-a:active {
+.nav-link  a:active {
   color: blue;
   text-decoration: none;
 }
@@ -50,7 +50,6 @@ a:active {
   font-size: 60px;
   margin-top: 20%;
   font-family: josefin sans;
-
 }
 
 .side-nav {
@@ -76,10 +75,14 @@ a:active {
 }
 
 .nav-link {
-  color: red;
   list-style: none;
   font-size: 25px;
   margin: 5px 0px 5px 5px;
+}
+
+.active {
+  text-decoration: none;
+  color: blue;
 }
 
 .logo-main {
@@ -127,10 +130,17 @@ a:active {
   text-align: center;
   color: white;
   font-family: oswald;
+  margin-bottom: 5%;
+}
+
+.recipe-description {
+  font-size:25px;
+  color: white;
+
 }
 
 .recipe-recipe {
-  font-size:30px;
+  font-size:20px;
   color: white;
 }
 
