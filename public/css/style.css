@@ -19,7 +19,13 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: blue;
+  color: gray;
+}
+
+.button {
+  background-color: blue;
+  border: none;
+  font-family: oswald;
 }
 
 .caladine-nav {
@@ -33,6 +39,7 @@ a:hover {
 
 .side-nav {
   background-color: black;
+  font-family: oswald;
   overflow: overlay;
   float: left;
   height: 100vh;
@@ -66,17 +73,17 @@ a:hover {
 }
 
 .logo {
-  font-family: lobster;
-  color: red;
+  font-family: josefin sans;
+  color: white;
 }
 
 .main {
-  /*height: 100vh;*/
+  height: 100vh;
   float: right;
  /* background-color: white;*/
-  margin: -500px 0px 0px 20%;
+  margin: 0px 0% 0px 0%;
   /*opacity: .8;*/
-  overflow:auto;
+  overflow: auto;
 }
 
 .home-main {
@@ -87,7 +94,7 @@ a:hover {
 .home-text {
   color: white;
   font-size: 80px;
-  font-family: josefin sans;
+  font-family: oswald;
   padding: 0% 40px 0% 0%;
 
 }
@@ -103,7 +110,13 @@ a:hover {
 }
 
 .recipe-board {
-  margin: 2% 10%;
+  margin: -20px 150px;
+}
+
+.recipe-board-description {
+  font-family: oswald;
+  font-size: 15px;
+  color: white;
 }
 
 .signup {

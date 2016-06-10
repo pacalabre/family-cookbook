@@ -3,11 +3,11 @@
   <title>Cookbook</title>
 </head>
 <body>
-  <h1 class="logo-main logo">Cookbook</h1>
+  <h1 class="logo-main logo">COOKBOOK</h1>
   <!-- Add Recipe -->
   <!-- Button trigger modal -->
-  <button type="button" class="new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-show="Auth.isLoggedIn()">
-    Add New Recipe
+  <button type="button" class=" button new-recipe-button btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-show="Auth.isLoggedIn()">
+    ADD NEW RECIPE
   </button>
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -41,8 +41,8 @@
   <section class="recipe-board">
     <section ng-repeat="recipe in recipes track by $index" >
       <a ng-href="/cookbook/{{recipe._id}}"><h3>{{recipe.title}}</h3></a>
-      <h5>{{recipe.description}}</h5>
-      <h6>{{recipe.author.email}}</h6>
+      <h5 class="recipe-board-description">{{recipe.description}}</h5>
+      <h6 class="recipe-board-description">{{recipe.author.email}}</h6>
     </section>
   </section>
 </body>
