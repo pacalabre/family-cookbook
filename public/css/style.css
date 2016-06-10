@@ -125,6 +125,10 @@ a:hover {
   margin: 2% 30% 10% 30%;
 }
 
+.api-link {
+  text-align: center;
+}
+
 .recipe-headline {
   font-size: 35px;
   text-align: center;
