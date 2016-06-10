@@ -28,6 +28,10 @@ a:hover {
   font-family: oswald;
 }
 
+a:.button {
+  color: gray;
+}
+
 .caladine-nav {
   color: white;
   text-align: center;
@@ -79,7 +83,7 @@ a:hover {
 
 .main {
   height: 100vh;
-  float: right;
+ /* float: right;*/
  /* background-color: white;*/
   margin: 0px 0% 0px 0%;
   /*opacity: .8;*/
@@ -87,7 +91,8 @@ a:hover {
 }
 
 .home-main {
-  margin: 25px 5px 100px 5px;
+  margin: 150px 20% 0px 0px;
+  /*text-align: center;*/
 
 }
 
