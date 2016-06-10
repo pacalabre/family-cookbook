@@ -22,6 +22,16 @@ a:hover {
   color: gray;
 }
 
+a:active {
+  color: blue;
+  text-decoration: none;
+}
+
+/*a:visited {
+  text-decoration: none;
+  color: white;
+}*/
+
 .button {
   background-color: blue;
   border: none;
@@ -30,7 +40,7 @@ a:hover {
   font-size: 20px;
 }
 
-a:.button {
+.button:hover {
   color: gray;
 }
 
@@ -113,17 +123,31 @@ a:.button {
 }
 
 .recipe-headline {
+  font-size: 35px;
   text-align: center;
+  color: white;
+  font-family: oswald;
+}
+
+.recipe-recipe {
+  font-size:30px;
+  color: white;
 }
 
 .recipe-board {
-  margin: -20px 150px;
+  margin: 0px 10%;
 }
 
 .recipe-board-description {
   font-family: oswald;
   font-size: 15px;
   color: white;
+}
+
+.recipe-form {
+  color: black;
+  font-family: oswald;
+  font-size: 20px;
 }
 
 .form-label {
