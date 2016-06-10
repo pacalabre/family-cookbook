@@ -6,13 +6,13 @@
 #### This is my final project of General Assembly. For this project, I used the MEAN stack, bootstap, and the Food2Fork API.
 
 ##### The approach I took was:
-1)Set up the basic architecture of the site. This mainly consisted of establishing my routes, dependencies, and making sure that my database, controllers, and static files a were connected properly.
+#####1)Set up the basic architecture of the site. This mainly consisted of establishing my routes, dependencies, and making sure that my database, controllers, and static files a were connected properly.
 
-2) Basic CSS styling, largely revolving around bootstrap.
+#####2) Basic CSS styling, largely revolving around bootstrap.
 
-3) Set up functionality of site - specifically sending information to my database, and setting up my API.
+#####3) Set up functionality of site - specifically sending information to my database, and setting up my API.
 
-4) Finish styling.
+#####4) Finish styling.
 
 ## User stories
 ##### The idea for this site came to me because my family includes a lot of people who love to cook, but we are spread out all over the country. I thought that I'd be nice to have a place where we could all log into and post recipes that we have been playing around with.
