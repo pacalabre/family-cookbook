@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100);
 
 body {
-  background-image: url('../images/cooking.jpg');
+  background-image: url('../images/cooking-grey.png');
   background-size: cover;
   background-attachment: fixed;
 }
@@ -19,7 +19,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: gray;
+  color: blue;
 }
 
 .caladine-nav {
@@ -81,6 +81,14 @@ a:hover {
 
 .home-main {
   margin: 25px 5px 100px 5px;
+
+}
+
+.home-text {
+  color: white;
+  font-size: 80px;
+  font-family: josefin sans;
+  padding: 0% 40px 0% 0%;
 
 }
 
