@@ -8,7 +8,21 @@ body {
 }
 
 p {
-  padding: 2% 40px 5% 40px;
+  padding: 2% 40px 5% 15%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.side-nav {
+  background-color: black;
+  overflow: overlay;
+  float: left;
+  height: 100vh;
+  margin: 0px 10px 0px 0px;
+  width: 300px;
 }
 
 .nav {
@@ -19,8 +33,15 @@ p {
 
 }
 
+.nav-link-section {
+  margin-top: 150px;
+}
+
 .nav-link {
   color: red;
+  list-style: none;
+  font-size: 25px;
+  margin: 5px 0px 5px 5px;
 }
 
 .logo-main {
@@ -35,11 +56,12 @@ p {
 }
 
 .main {
-  height: 100%;
-  background-color: white;
-  margin: 5% 25%;
+  /*height: 100vh;*/
+  float: right;
+ /* background-color: white;*/
+  margin: -500px 0px 0px 20%;
   /*opacity: .8;*/
-  overflow:contain;
+  overflow:auto;
 }
 
 .home-main {

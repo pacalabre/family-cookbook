@@ -16,8 +16,8 @@ var secret = "thisisthepassword";
 // db.on('error', console.error.bind(console, 'connection error:'))
 // db.once('open', console.log.bind(console, 'connected to mongodb'))
 
-mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
-// mongoose.connect('mongodb://localhost/cookbook')
+// mongoose.connect('mongodb://'+process.env.MONGO_USER+':'+process.env.MONGO_PASSWORD+'@ds011314.mlab.com:11314/family-cookbook')
+mongoose.connect('mongodb://localhost/cookbook')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -99,7 +99,7 @@ app.listen( process.env.PORT || 3000);
 // - Hide add button if the user is not logged in - Done
         // - Add Edit button if you are logged in and made the post
         // - Add Edit post logic
-        // - Add posted by user
+        // - Add posted by user -  Done
         // - Deploy - Done
         // http://www.awwwards.com/tasty-design-restaurant-and-catering-websites.html
 // - add individual recipe pages -done
