@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster);
 @import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100);
 
 body {
   background-image: url('../images/cooking.jpg');
@@ -14,6 +15,20 @@ p {
 a {
     text-decoration: none;
     color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.caladine-nav {
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 20%;
+  font-family: josefin sans;
+
 }
 
 .side-nav {
@@ -34,7 +49,7 @@ a {
 }
 
 .nav-link-section {
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .nav-link {
